@@ -21,8 +21,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-const usermodel = mongoose.model('Users', userSchema);
-
 const ads = [{ title: 'Hello, world (again)!' }];
 
 router.get('/', (req, res) => {
@@ -37,5 +35,6 @@ router.get('/ads', (req, res) => {
 
 app.use(`/.netlify/functions/api`, router);
 
+//comment test
 module.exports = app;
 module.exports.handler = serverless(app);
