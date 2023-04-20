@@ -13,10 +13,7 @@ app.use(bodyParser.json());
 app.use(morgan('combined'));
 
 const corsOptions = {
-  origin: [
-    'http://localhost:3000',
-    'https://clinquant-pavlova-18d509.netlify.app',
-  ],
+  origin: 'http://localhost:3000',
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
@@ -35,6 +32,12 @@ router.get('/ads', (req, res) => {
 
 app.use(`/.netlify/functions/api`, router);
 
-//comment test
 module.exports = app;
 module.exports.handler = serverless(app);
+
+/*
+  origin: [
+    'http://localhost:3000',
+    'https://clinquant-pavlova-18d509.netlify.app',
+  ],
+*/
